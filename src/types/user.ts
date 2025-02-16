@@ -9,3 +9,15 @@ export interface UserListItem {
     login: string;
     avatar_url: string;
 }
+
+export interface UserDetails {
+    id: string;
+    login: string;
+    avatar_url: string;
+    name: string;
+    location: string;
+    bio: string;
+    public_repos: number;
+    followers: number;
+    following: number;
+}

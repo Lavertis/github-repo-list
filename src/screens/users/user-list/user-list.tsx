@@ -1,5 +1,5 @@
 import { Alert, Col, Container } from 'react-bootstrap';
-import PaginationComponent from '../../components/pagination-component.tsx';
+import PaginationComponent from '../../../components/pagination-component.tsx';
 import UserListRow from './components/user-list-row.tsx';
 import SearchForm from './components/search-from.tsx';
 import useUserSearch from './hooks/use-user-search.ts';
@@ -24,11 +24,7 @@ const UserList = () => {
     return users.map(user => <UserListRow key={user.id} user={user} />);
   };
 
-  if (error) {
-    return (
-      <Alert variant="danger">{error}</Alert>
-    );
-  }
+  if (error) return <Alert variant="danger">{error}</Alert>;
 
   return (
     <Container>

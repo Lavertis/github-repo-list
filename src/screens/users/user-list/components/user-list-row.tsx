@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Image, Button } from 'react-bootstrap';
-import { UserListItem } from '../../../types/user.ts';
+import { UserListItem } from '../../../../types/user.ts';
 import { useNavigate } from 'react-router-dom';
 
 interface UserListItemProps {

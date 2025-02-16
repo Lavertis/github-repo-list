@@ -6,7 +6,7 @@ import AppRoutes from "./routing/AppRoutes.tsx";
 function App() {
     return (
         <Router>
-            <Container className="mt-5">
+            <Container className="my-2">
                 <AppRoutes />
             </Container>
         </Router>

@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { useDebounce } from 'use-debounce';
-import { UserListItem, UserListResponse } from '../../../types/user.ts';
-import axiosInstance from '../../../api/axiosInstance.ts';
+import { UserListItem, UserListResponse } from '../../../../types/user.ts';
+import axiosInstance from '../../../../api/axiosInstance.ts';
 
 const pageSize = 10;
 
