@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
 import PaginationRow from '../../../components/PaginationRow.tsx';
-import RepositoryCard from './components/RepositoryCard.tsx';
-import UserRepositoriesHeader from './components/UserRepositoriesHeader.tsx';
+import RepositoryCard from './components/repository-card/RepositoryCard.tsx';
+import UserRepositoriesHeader from './components/user-repositories-header/UserRepositoriesHeader.tsx';
 import { useUserDetails } from './hooks/use-user-details.ts';
 import { useUserRepositories } from './hooks/use-user-repositories.ts';
 

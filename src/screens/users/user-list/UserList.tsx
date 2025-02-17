@@ -1,7 +1,7 @@
 import { Alert, Col, Container } from 'react-bootstrap';
 import PaginationRow from '../../../components/PaginationRow.tsx';
-import UserListRow from './components/UserListRow.tsx';
-import SearchForm from './components/SearchForm.tsx';
+import UserListRow from './components/user-list-row/UserListRow.tsx';
+import SearchForm from './components/search-form/SearchForm.tsx';
 import useUserSearch from './hooks/use-user-search.ts';
 
 const UserList = () => {

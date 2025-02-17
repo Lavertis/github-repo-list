@@ -1,8 +1,8 @@
 import { Col, Row } from 'react-bootstrap';
-import { UserDetails } from '../../../../types/user.ts';
+import { UserDetails } from '../../../../../types/user.ts';
 import { VscRepo } from 'react-icons/vsc';
 import { RiUserAddLine, RiUserFollowLine } from 'react-icons/ri';
-import StatBadge from '../../../../components/StatBadge.tsx';
+import StatBadge from '../../../../../components/StatBadge.tsx';
 import { FC } from 'react';
 
 interface UserRepositoriesHeaderProps {

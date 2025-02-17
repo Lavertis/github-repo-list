@@ -1,11 +1,11 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { Repository } from '../../../../types/repository.ts';
+import { Repository } from '../../../../../types/repository.ts';
 import { AiOutlineEye, AiOutlineStar } from 'react-icons/ai';
 import { BiGitRepoForked } from 'react-icons/bi';
 import { VscCode } from 'react-icons/vsc';
 import { GoIssueOpened } from 'react-icons/go';
-import StatBadge from '../../../../components/StatBadge.tsx';
+import StatBadge from '../../../../../components/StatBadge.tsx';
 
 interface RepositoryCardProps {
   repo: Repository;
