@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axiosInstance from '../../../../api/axiosInstance';
+import axiosInstance from '../../../../api/axios-instance.ts';
 import { Repository } from '../../../../types/repository.ts';
 
 export function useUserRepositories(userId?: string, currentPage = 1, pageSize = 10) {

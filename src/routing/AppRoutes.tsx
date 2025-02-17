@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import UserList from '../screens/users/user-list/user-list.tsx';
-import UserRepositories from '../screens/users/user-repositories/user-repositories.tsx';
+import UserList from '../screens/users/user-list/UserList.tsx';
+import UserRepositories from '../screens/users/user-repositories/UserRepositories.tsx';
 
 const AppRoutes = () => {
   return (

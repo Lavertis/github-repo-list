@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { UserDetails } from '../../../../types/user.ts';
-import axiosInstance from '../../../../api/axiosInstance.ts';
+import axiosInstance from '../../../../api/axios-instance.ts';
 
 export function useUserDetails(userId?: string) {
   const [user, setUser] = useState<UserDetails | undefined>();

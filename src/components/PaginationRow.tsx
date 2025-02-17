@@ -1,13 +1,13 @@
 import React from 'react';
 import { Pagination } from 'react-bootstrap';
 
-interface PaginationComponentProps {
+interface PaginationRowProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
 }
 
-const PaginationComponent: React.FC<PaginationComponentProps> = ({ currentPage, totalPages, onPageChange }) => {
+const PaginationRow: React.FC<PaginationRowProps> = ({ currentPage, totalPages, onPageChange }) => {
   const itemCount = 7;
   const halfItemCount = Math.floor(itemCount / 2);
 
@@ -42,4 +42,4 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({ currentPage, 
   );
 };
 
-export default PaginationComponent;
+export default PaginationRow;

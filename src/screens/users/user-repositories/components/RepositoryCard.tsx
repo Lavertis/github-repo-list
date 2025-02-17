@@ -13,7 +13,7 @@ interface RepositoryCardProps {
 
 const RepositoryCard: React.FC<RepositoryCardProps> = ({ repo }) => {
   return (
-    <Row key={repo.id} className="mb-3">
+    <Row key={repo.id} className="mb-2">
       <Col>
         <Card>
           <Card.Body>

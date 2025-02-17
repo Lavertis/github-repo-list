@@ -1,7 +1,7 @@
 import { Alert, Col, Container } from 'react-bootstrap';
-import PaginationComponent from '../../../components/pagination-component.tsx';
-import UserListRow from './components/user-list-row.tsx';
-import SearchForm from './components/search-from.tsx';
+import PaginationRow from '../../../components/PaginationRow.tsx';
+import UserListRow from './components/UserListRow.tsx';
+import SearchForm from './components/SearchForm.tsx';
 import useUserSearch from './hooks/use-user-search.ts';
 
 const UserList = () => {
@@ -36,7 +36,7 @@ const UserList = () => {
       </Container>
       <div className="my-4" />
       <Col className="d-flex justify-content-center">
-        <PaginationComponent
+        <PaginationRow
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
