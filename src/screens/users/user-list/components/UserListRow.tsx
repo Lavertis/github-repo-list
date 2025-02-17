@@ -16,7 +16,7 @@ const UserListRow: React.FC<UserListItemProps> = ({ user }) => {
     <Row key={user.id} className="justify-content-center w-100">
       <Col xs={12} md={8} lg={7} xl={6} xxl={5} className="d-flex align-items-center justify-content-between mb-2">
         <Image src={user.avatar_url} alt={user.login} width="50" height="50" roundedCircle />
-        <div className="user-login flex-grow-1 mx-3">{user.login}</div>
+        <div className="text-truncate flex-grow-1 mx-3">{user.login}</div>
         <Button variant="primary" onClick={() => handleRepoList(user.login)}>
           Repositories
         </Button>

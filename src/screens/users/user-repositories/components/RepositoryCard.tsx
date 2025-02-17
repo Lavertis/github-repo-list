@@ -22,7 +22,7 @@ const RepositoryCard: React.FC<RepositoryCardProps> = ({ repo }) => {
                 {repo.name}
               </a>
             </Card.Title>
-            <Card.Text className="mb-2">{repo.description}</Card.Text>
+            <Card.Text className="mb-2 text-truncate-multi-line">{repo.description}</Card.Text>
             <Col className="d-flex justify-content-end gap-1">
               {repo.language && <StatBadge variant="warning" Icon={VscCode} value={repo.language} />}
               <StatBadge variant="primary" Icon={AiOutlineStar} value={repo.stargazers_count} />
