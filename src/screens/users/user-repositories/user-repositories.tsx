@@ -1,56 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axiosInstance from '../../../api/axiosInstance.ts';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
-import { UserDetails } from '../../../types/user.ts';
 import PaginationComponent from '../../../components/pagination-component.tsx';
-import { Repository } from '../../../types/repository.ts';
 import RepositoryCard from './components/repository-card.tsx';
 import UserRepositoriesHeader from './components/user-repositories-header.tsx';
+import { useUserDetails } from './hooks/use-user-details.ts';
+import { useUserRepositories } from './hooks/use-user-repositories.ts';
 
 
 const UserRepositories = () => {
   const { userId } = useParams<{ userId: string }>();
-  const [user, setUser] = useState<UserDetails | undefined>(undefined);
-  const [repositories, setRepositories] = useState<Repository[]>([]);
-  const [error, setError] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
+  const { user, error: userError } = useUserDetails(userId);
   const pageSize = 5;
-  const [totalPages, setTotalPages] = useState(0);
-
-  useEffect(() => {
-    setTotalPages(user?.public_repos ? Math.ceil(user.public_repos / pageSize) : 0);
-  }, [user]);
-
-  useEffect(() => {
-    if (userId) {
-      axiosInstance.get<UserDetails>(`users/${userId}`)
-        .then((response) => {
-          setUser(response.data);
-          setTotalPages(Math.ceil(response.data.public_repos / pageSize));
-        })
-        .catch((error) => {
-          setError(error.message);
-        });
-
-      axiosInstance.get<Repository[]>(`users/${userId}/repos?page=${currentPage}&per_page=${pageSize}`)
-        .then((response) => {
-          setRepositories(response.data);
-          setTotalPages(Math.ceil(response.data.length / 10)); // Assuming the API returns the total count
-        })
-        .catch((error) => {
-          setError(error.message);
-        });
-    }
-  }, [userId, currentPage]);
+  const totalPages = Math.ceil(user?.public_repos ?? 0 / pageSize);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { repositories, error: reposError } = useUserRepositories(userId, currentPage, pageSize);
 
   const displayRepositories = () => {
     if (!user) return <Alert variant="info">Loading...</Alert>;
     if (repositories.length === 0) return <Alert variant="info">No repositories found</Alert>;
     return repositories.map((repo) => <RepositoryCard key={repo.id} repo={repo} />);
-  }
+  };
 
-  if (error) return <Alert variant="danger">{error}</Alert>;
+  if (!user) return null;
+  if (userError || reposError) return <Alert variant="danger">{userError ?? reposError}</Alert>;
 
   return (
     <Container>
@@ -67,7 +40,7 @@ const UserRepositories = () => {
           />
         </Col>
       </Col>
-  </Container>
+    </Container>
   );
 };
 

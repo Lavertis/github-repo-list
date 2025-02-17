@@ -19,7 +19,7 @@ const UserList = () => {
 
   const displayUsers = () => {
     if (!searchQuery) return <Alert variant="info">Please enter a username to search</Alert>;
-    if (users === undefined) return <Alert variant="info">Loading...</Alert>;
+    if (users === undefined) return <div>Loading...</div>;
     if (users.length === 0) return <Alert variant="info">No users found</Alert>;
     return users.map(user => <UserListRow key={user.id} user={user} />);
   };

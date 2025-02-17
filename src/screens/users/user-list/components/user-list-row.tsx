@@ -1,10 +1,10 @@
 import React from 'react';
-import { Row, Col, Image, Button } from 'react-bootstrap';
+import { Button, Col, Image, Row } from 'react-bootstrap';
 import { UserListItem } from '../../../../types/user.ts';
 import { useNavigate } from 'react-router-dom';
 
 interface UserListItemProps {
-  user: UserListItem
+  user: UserListItem;
 }
 
 const UserListRow: React.FC<UserListItemProps> = ({ user }) => {

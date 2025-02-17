@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { UserListItem, UserListResponse } from '../../../../types/user.ts';
 import axiosInstance from '../../../../api/axiosInstance.ts';
