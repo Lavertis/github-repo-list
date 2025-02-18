@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import UserList from './UserList';
 import { BrowserRouter } from 'react-router-dom';
 import * as useUserSearch from './hooks/use-user-search';
@@ -20,7 +20,7 @@ describe('UserList', () => {
     render(
       <BrowserRouter>
         <UserList />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getByPlaceholderText('Username')).toBeInTheDocument();
@@ -41,7 +41,7 @@ describe('UserList', () => {
     render(
       <BrowserRouter>
         <UserList />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -61,7 +61,7 @@ describe('UserList', () => {
     render(
       <BrowserRouter>
         <UserList />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getByText('Something went wrong')).toBeInTheDocument();
@@ -81,7 +81,7 @@ describe('UserList', () => {
     render(
       <BrowserRouter>
         <UserList />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getByText('No users found')).toBeInTheDocument();
@@ -106,7 +106,7 @@ describe('UserList', () => {
     render(
       <BrowserRouter>
         <UserList />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     await waitFor(() => {
@@ -129,7 +129,7 @@ describe('UserList', () => {
     render(
       <BrowserRouter>
         <UserList />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const paginationButton = screen.getByRole('button', { name: /next/i });

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import UserRepositories from './UserRepositories';
 import { useUserDetails } from './hooks/use-user-details';
@@ -20,7 +20,7 @@ describe('UserRepositories', () => {
         <Routes>
           <Route path="/user/:userId" element={<UserRepositories />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.queryByText('UserRepositoriesHeader')).not.toBeInTheDocument();
@@ -35,7 +35,7 @@ describe('UserRepositories', () => {
         <Routes>
           <Route path="/user/:userId" element={<UserRepositories />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText('User not found')).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('UserRepositories', () => {
         <Routes>
           <Route path="/user/:userId" element={<UserRepositories />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText('Error fetching repositories')).toBeInTheDocument();
@@ -65,7 +65,7 @@ describe('UserRepositories', () => {
         <Routes>
           <Route path="/user/:userId" element={<UserRepositories />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText('No repositories found')).toBeInTheDocument();
@@ -84,7 +84,7 @@ describe('UserRepositories', () => {
         <Routes>
           <Route path="/user/:userId" element={<UserRepositories />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     mockRepos.forEach(repo => {
@@ -115,7 +115,7 @@ describe('UserRepositories', () => {
         <Routes>
           <Route path="/user/:userId" element={<UserRepositories />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText('repo1')).toBeInTheDocument();

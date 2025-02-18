@@ -1,9 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter, useNavigate } from 'react-router-dom';
 import UserListRow from './UserListRow';
 import { UserListItem } from '../../../../../types/user';
 import { randomUUID } from 'node:crypto';
-import { useNavigate } from 'react-router-dom';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -24,7 +23,7 @@ describe('UserListRow', () => {
     render(
       <MemoryRouter>
         <UserListRow user={mockUser} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText(mockUser.login)).toBeInTheDocument();
@@ -36,7 +35,7 @@ describe('UserListRow', () => {
     render(
       <MemoryRouter>
         <UserListRow user={mockUser} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const button = screen.getByRole('button', { name: /repositories/i });

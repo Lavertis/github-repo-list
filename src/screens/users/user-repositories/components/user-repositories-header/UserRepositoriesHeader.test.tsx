@@ -23,7 +23,7 @@ describe('UserRepositoriesHeader', () => {
     followers: 100,
     following: 50,
     location: 'New York',
-    bio: 'Software Engineer'
+    bio: 'Software Engineer',
   };
 
   test('renders the component with user data', () => {
