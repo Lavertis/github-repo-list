@@ -17,13 +17,12 @@ const UserRepositories = () => {
   const { repositories, error: reposError } = useUserRepositories(userId, currentPage, pageSize);
 
   const displayRepositories = () => {
-    if (!user) return <Alert variant="info">Loading...</Alert>;
-    if (repositories.length === 0) return <Alert variant="info">No repositories found</Alert>;
-    return repositories.map((repo) => <RepositoryCard key={repo.id} repo={repo} />);
+    if (repositories?.length === 0) return <Alert variant="info">No repositories found</Alert>;
+    return repositories?.map((repo) => <RepositoryCard key={repo.id} repo={repo} />);
   };
 
-  if (!user) return null;
   if (userError || reposError) return <Alert variant="danger">{userError ?? reposError}</Alert>;
+  if (!user || !repositories) return null;
 
   return (
     <Container>

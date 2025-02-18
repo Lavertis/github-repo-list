@@ -3,7 +3,7 @@ import axiosInstance from '../../../../api/axios-instance.ts';
 import { Repository } from '../../../../types/repository.ts';
 
 export function useUserRepositories(userId?: string, currentPage = 1, pageSize = 10) {
-  const [repositories, setRepositories] = useState<Repository[]>([]);
+  const [repositories, setRepositories] = useState<Repository[] | undefined>(undefined);
   const [error, setError] = useState('');
 
   useEffect(() => {

@@ -3,15 +3,19 @@ import { useDebounce } from 'use-debounce';
 import { UserListItem, UserListResponse } from '../../../../types/user.ts';
 import axiosInstance from '../../../../api/axios-instance.ts';
 
-const pageSize = 10;
 
 const useUserSearch = (initialQuery: string) => {
+  const pageSize = 10;
   const [error, setError] = useState('');
   const [users, setUsers] = useState<UserListItem[] | undefined>(undefined);
   const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [debouncedSearchQuery] = useDebounce(searchQuery, 1000);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [debouncedSearchQuery]);
 
   useEffect(() => {
     if (!debouncedSearchQuery) {
@@ -28,6 +32,7 @@ const useUserSearch = (initialQuery: string) => {
       .catch((error) => {
         setError(error.message);
       });
+
   }, [currentPage, debouncedSearchQuery]);
 
   const handlePageChange = (pageNumber: number) => {
@@ -36,8 +41,6 @@ const useUserSearch = (initialQuery: string) => {
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
-    setCurrentPage(1);
-    setTotalCount(0);
   };
 
   return {
