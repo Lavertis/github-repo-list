@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+# GitHub Repo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting Started
 
-Currently, two official plugins are available:
+Follow these instructions to set up and run the project on your local machine.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installation
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd github-repo-list
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+### Running the Project
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+To start the development server, run:
+```bash
+npm run dev
 ```
+This will start the Vite development server. You can access the application at `http://localhost:3000`.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Running Tests
+
+To run the tests, use:
+```bash
+npm test
+```
+This will run the tests using Jest.
+
+To run the tests with coverage, use:
+```bash
+npm run test:coverage
+```
+This will generate a test coverage report.
